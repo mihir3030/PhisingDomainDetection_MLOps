@@ -4,6 +4,7 @@ scikit-learn
 matplotlib
 seaborn
 pyYaml
+python-box==6.0.2
 tqdm
 ensure==1.0.2
 joblib
