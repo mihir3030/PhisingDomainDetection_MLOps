@@ -1,0 +1,1 @@
+from PhishingDomainDetection.entity.config_entity import DataIngestionConfig
