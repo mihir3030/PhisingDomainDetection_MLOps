@@ -23,5 +23,5 @@ class DataIngestion:
 
         raw_local_dir_path = os.path.join(data_ingestion_root_dir, local_file_dir)
 
-        self.df.to_csv(raw_local_dir_path, index=False, sep=";")
+        self.df.to_csv(raw_local_dir_path, index=False)
         log.info(f"data saved successfully at {raw_local_dir_path}")
