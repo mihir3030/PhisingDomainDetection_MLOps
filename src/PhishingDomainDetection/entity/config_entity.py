@@ -6,3 +6,11 @@ class DataIngestionConfig:
     root_dir: Path
     source_URL: str
     local_file: Path
+    
+
+@dataclass(frozen=True)
+class DataPreprocessConfig:
+    root_dir: Path
+    load_file_path: Path
+    local_file: Path
+    params_select_columns: list
