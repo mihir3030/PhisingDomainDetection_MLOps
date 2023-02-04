@@ -1,6 +1,7 @@
 from PhishingDomainDetection.constants import CONFIG_FILE_PATH, PARAMS_FILE_APTH
 from PhishingDomainDetection.utils import read_yaml_file, create_directories
 from PhishingDomainDetection import log
+from pathlib import Path
 from PhishingDomainDetection.entity import DataIngestionConfig
 
 class ConfigurationManager:
@@ -12,9 +13,9 @@ class ConfigurationManager:
         config = self.config.data_ingestion
         create_directories([config.root_dir])
         data_ingestion_config = DataIngestionConfig(
-            root_dir=config.root_dir,
+            root_dir=Path(config.root_dir),
             source_URL=config.source_URL,
-            local_file=config.local_file
+            local_file=Path(config.local_file)
         )
 
         return data_ingestion_config
