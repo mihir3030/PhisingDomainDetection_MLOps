@@ -1,0 +1,4 @@
+select_columns: ["qty_dot_url","qty_slash_url","qty_tld_url","length_url","qty_dot_domain","qty_vowels_domain","domain_length",
+                "directory_length","file_length","params_length","time_response","asn_ip","time_domain_activation","time_domain_expiration",
+                "qty_nameservers","qty_mx_servers","ttl_hostname", "domain_spf", "url_shortened", "domain_google_index", "url_google_index",
+                "tls_ssl_certificate", "domain_in_ip", "server_client_domain", "email_in_url", "phishing"]
