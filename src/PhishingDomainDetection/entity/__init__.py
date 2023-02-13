@@ -1,1 +1,1 @@
-from PhishingDomainDetection.entity.config_entity import DataIngestionConfig, DataPreprocessConfig
+from PhishingDomainDetection.entity.config_entity import DataIngestionConfig, DataPreprocessConfig, TrainingConfig

@@ -3,7 +3,7 @@ from PhishingDomainDetection.utils import read_yaml_file, create_directories
 from PhishingDomainDetection import log
 from pathlib import Path
 import os
-from PhishingDomainDetection.entity import DataIngestionConfig, DataPreprocessConfig
+from PhishingDomainDetection.entity import DataIngestionConfig, DataPreprocessConfig, TrainingConfig
 
 class ConfigurationManager:
     def __init__(self, config_file_path=CONFIG_FILE_PATH, params_file_path=PARAMS_FILE_APTH):
@@ -41,3 +41,26 @@ class ConfigurationManager:
         )
 
         return data_preprocess_config
+
+    def get_data_load_for_training(self):
+        self.data_load_config = self.config.data_preprocessing
+        self.root_dir = self.data_load_config.root_dir
+        self.file_dir = self.data_load_config.local_file
+        self.file_path = os.path.join(self.root_dir, self.file_dir)
+        return self.file_path
+       
+
+    def get_training_config(self) -> TrainingConfig:
+        config = self.config.training
+        
+
+        create_directories([config.root_dir])
+
+        training_config = TrainingConfig(
+            root_dir=Path(config.root_dir),
+            load_file_path=Path(self.get_data_load_for_training()),
+            test_data_save=Path(config.test_data_save),
+            model_save=Path(config.model_save)
+        )
+
+        return training_config

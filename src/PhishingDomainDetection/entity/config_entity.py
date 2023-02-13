@@ -14,3 +14,11 @@ class DataPreprocessConfig:
     load_file_path: Path
     local_file: Path
     params_select_columns: list
+
+
+@dataclass(frozen=True)
+class TrainingConfig:
+    root_dir: Path
+    load_file_path: Path
+    test_data_save: Path
+    model_save: Path

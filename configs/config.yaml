@@ -9,3 +9,8 @@ data_preprocessing:
   root_dir: artifacts/data_preprocessing
   dataset_load_file: artifacts/da
   local_file: preprocess_data.csv
+
+training:
+  root_dir: artifacts/training
+  test_data_save: test_data.csv
+  model_save: model.pkl
