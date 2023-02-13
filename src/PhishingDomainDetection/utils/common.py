@@ -6,6 +6,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from box.exceptions import BoxValueError
 from PhishingDomainDetection import log
+import json
 
 # ensure_annotation verifies that function output will be -> annotation type output 
 # because we mention in annotation type -> ConfigBox type - more refere trails.ipynb
@@ -41,3 +42,9 @@ def create_directories(path_to_directories: list, verbose=True):
         os.makedirs(path, exist_ok=True)
         if verbose:
             log.info(f"created directory at {path}")
+
+
+def save_reports(report: dict, report_path: str, indentation=4):
+    with open(report_path, "w") as f:
+        json.dump(report, f, indent=indentation)
+    print(f"report are saved in {report_path}")
