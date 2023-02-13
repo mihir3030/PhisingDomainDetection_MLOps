@@ -3,7 +3,7 @@ from PhishingDomainDetection.utils import read_yaml_file, create_directories
 from PhishingDomainDetection import log
 from pathlib import Path
 import os
-from PhishingDomainDetection.entity import DataIngestionConfig, DataPreprocessConfig, TrainingConfig
+from PhishingDomainDetection.entity import DataIngestionConfig, DataPreprocessConfig, TrainingConfig, EvaluationConfig
 
 class ConfigurationManager:
     def __init__(self, config_file_path=CONFIG_FILE_PATH, params_file_path=PARAMS_FILE_APTH):
@@ -64,3 +64,31 @@ class ConfigurationManager:
         )
 
         return training_config
+
+
+    def get_model_for_evaluation(self):
+        self.data_load_config = self.config.training
+        self.root_dir = self.data_load_config.root_dir
+        self.file_dir = self.data_load_config.model_save
+        self.file_path = os.path.join(self.root_dir, self.file_dir)
+        return self.file_path
+
+    def get_test_data_for_evaluation(self):
+        self.data_load_config = self.config.training
+        self.root_dir = self.data_load_config.root_dir
+        self.file_dir = self.data_load_config.test_data_save
+        self.file_path = os.path.join(self.root_dir, self.file_dir)        
+        return self.file_path
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        config = self.config.model_evaluation
+        create_directories([config.root_dir])
+
+        evaluation_config = EvaluationConfig(
+            root_dir=Path(config.root_dir),
+            load_model_path=Path(self.get_model_for_evaluation()),
+            load_test_data=Path(self.get_test_data_for_evaluation()),
+            local_file=Path(config.local_file)
+        )
+        
+        return evaluation_config

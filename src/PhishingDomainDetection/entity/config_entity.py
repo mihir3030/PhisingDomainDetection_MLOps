@@ -22,3 +22,11 @@ class TrainingConfig:
     load_file_path: Path
     test_data_save: Path
     model_save: Path
+
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    root_dir: Path
+    load_model_path: Path
+    load_test_data: Path
+    local_file: Path
