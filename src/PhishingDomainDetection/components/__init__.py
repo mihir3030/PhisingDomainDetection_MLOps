@@ -1,0 +1,4 @@
+from PhishingDomainDetection.components.data_ingestion import DataIngestion
+from PhishingDomainDetection.components.data_preprocessing import DataPreprocess
+from PhishingDomainDetection.components.training import Training
+from PhishingDomainDetection.components.evaluation import Evaluation

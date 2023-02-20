@@ -1,0 +1,21 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://data.mendeley.com/public-files/datasets/72ptz43s9v/files/26197eb8-15bc-4e06-a269-aa10ddc286f0/file_downloaded
+  local_file: data.csv
+
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing
+  dataset_load_file: artifacts/da
+  local_file: preprocess_data.csv
+
+training:
+  root_dir: artifacts/training
+  test_data_save: test_data.csv
+  model_save: model.pkl
+
+model_evaluation: 
+  root_dir: artifacts/model_score
+  local_file: score.json
+
